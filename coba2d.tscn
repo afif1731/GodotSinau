@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8d2yfv1natqt"]
+
+[ext_resource type="PackedScene" uid="uid://c3y1r7chvrmye" path="res://mc_cilly.tscn" id="1_k5kdc"]
+[ext_resource type="Material" uid="uid://8m7y3mp57gmh" path="res://BrickWall/brick_wall_red.tres" id="2_33plk"]
+[ext_resource type="Material" uid="uid://yf027msktesa" path="res://BrickWall/brick_wall_gray.tres" id="3_hm3vp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwik2"]
+size = Vector3(30, 2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2iw67"]
+size = Vector3(30, 2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_064co"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_blxyk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qnjfi"]
+
+[node name="newLvl" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48417, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.246373, 0.969175, 0, -0.969175, 0.246373, 0, 21.2065, 23.1456)
+light_color = Color(1, 1, 0.72549, 1)
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 50.0
+
+[node name="lante" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.21816, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lante"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00740433, 0)
+shape = SubResource("BoxShape3D_kwik2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lante"]
+mesh = SubResource("BoxMesh_2iw67")
+
+[node name="MC_cilly" parent="." instance=ExtResource("1_k5kdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54427, 0)
+
+[node name="objek" type="Node3D" parent="."]
+
+[node name="ktak" type="RigidBody3D" parent="objek"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.54093, -4.00476)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objek/ktak"]
+shape = SubResource("BoxShape3D_064co")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="objek/ktak"]
+mesh = SubResource("BoxMesh_blxyk")
+surface_material_override/0 = ExtResource("2_33plk")
+
+[node name="ktak2" type="RigidBody3D" parent="objek"]
+transform = Transform3D(0.810778, 0.585354, 0, -0.545146, 0.755086, -0.364227, -0.213202, 0.295307, 0.93131, 0, 9.56279, -4.00476)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objek/ktak2"]
+shape = SubResource("BoxShape3D_064co")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="objek/ktak2"]
+mesh = SubResource("BoxMesh_qnjfi")
+surface_material_override/0 = ExtResource("3_hm3vp")
+
+[node name="ktak3" type="RigidBody3D" parent="objek"]
+transform = Transform3D(0.906315, -0.0586118, -0.418519, -0.0762806, 0.95138, -0.298425, 0.415662, 0.302391, 0.857779, 0, 7.45502, -4.33263)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objek/ktak3"]
+shape = SubResource("BoxShape3D_064co")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="objek/ktak3"]
+mesh = SubResource("BoxMesh_qnjfi")
+surface_material_override/0 = ExtResource("3_hm3vp")
